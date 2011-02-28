@@ -26,17 +26,17 @@
     bt.views.mine = new MineView();
     bt.tweets = {};
     bt.tweets.stream = new TweetCollection();
-    bt.tweets.stream.bind("add", bt.views.stream.render);
+    bt.tweets.stream.bind("refresh", bt.views.stream.render);
     bt.tweets.retweets = new TweetCollection();
-    bt.tweets.retweets.bind("add", bt.views.retweets.render);
+    bt.tweets.retweets.bind("refresh", bt.views.retweets.render);
     bt.tweets.retweeted = new TweetCollection();
-    bt.tweets.retweeted.bind("add", bt.views.retweeted.render);
+    bt.tweets.retweeted.bind("refresh", bt.views.retweeted.render);
     bt.tweets.mentioned = new TweetCollection();
-    bt.tweets.mentioned.bind("add", bt.views.mentioned.render);
+    bt.tweets.mentioned.bind("refresh", bt.views.mentioned.render);
     bt.tweets.directMessages = new TweetCollection();
-    bt.tweets.directMessages.bind("add", bt.views.directMessages.render);
+    bt.tweets.directMessages.bind("refresh", bt.views.directMessages.render);
     bt.tweets.mine = new TweetCollection();
-    bt.tweets.mine.bind("add", bt.views.mine.render);
+    bt.tweets.mine.bind("refresh", bt.views.mine.render);
     bt.views.navigation = new NavigationView();
     $('#NavigationView').replaceWith(bt.views.navigation.render().el);
     bt.views.statusUpdate = new StatusUpdateView();
@@ -345,9 +345,29 @@
     };
     TwitterConnectorView.prototype.poll = function() {
       console.log('poll');
-      bt.tweets.stream.refresh([]);
       return bt.user.homeTimeline(function(items) {
-        return bt.tweets.stream.add(items.array);
+        bt.tweets.stream.refresh(items.array);
+        return bt.user.retweets(function(items) {
+          bt.tweets.retweets.refresh(items.array);
+          return bt.user.retweeted(function(items) {
+            bt.tweets.retweeted.refresh(items.array);
+            return bt.user.mentions(function(items) {
+              bt.tweets.mentioned.refresh(items.array);
+              return bt.user.timeline(function(items) {
+                bt.tweets.mine.refresh(items.array);
+                return bt.user.directMessages(function(items) {
+                  var item, _i, _len, _ref;
+                  _ref = items.array;
+                  for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+                    item = _ref[_i];
+                    item.user = item.sender;
+                  }
+                  return bt.tweets.directMessages.refresh(items.array);
+                });
+              });
+            });
+          });
+        });
       });
     };
     return TwitterConnectorView;

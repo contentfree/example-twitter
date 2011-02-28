@@ -37,33 +37,17 @@ class TwitterConnectorView extends Backbone.View
 
   poll: =>
     console.log('poll')
-
-    bt.tweets.stream.refresh([])
     bt.user.homeTimeline (items) ->
-      bt.tweets.stream.add(items.array)
-#      bt.user.retweets (items) ->
-#        tweets = []
-#        for item in items.array
-#          tweets.push(TweetModel(item))
-#        bt.tweets.retweets.add(tweets)
-#        bt.user.retweeted (items) ->
-#          tweets = []
-#          for item in items.array
-#            tweets.push(TweetModel(item))
-#          bt.tweets.retweeted.add(tweets)
-#          bt.user.mentions (items) ->
-#            tweets = []
-#            for item in items.array
-#              tweets.push(TweetModel(item))
-#            bt.tweets.mentioned.add(tweets)
-#            bt.user.timeline (items) ->
-#              tweets = []
-#              for item in items.array
-#                tweets.push(TweetModel(item))
-#              bt.tweets.mine.add(tweets)
-#              bt.user.directMessages (items) ->
-#                tweets = []
-#                for item in items.array
-#                  item.user = item.sender
-#                  tweets.push(TweetModel(item))
-#              bt.tweets.directMessages.add(tweets)
+      bt.tweets.stream.refresh(items.array)
+      bt.user.retweets (items) ->
+        bt.tweets.retweets.refresh(items.array)
+        bt.user.retweeted (items) ->
+          bt.tweets.retweeted.refresh(items.array)
+          bt.user.mentions (items) ->
+            bt.tweets.mentioned.refresh(items.array)
+            bt.user.timeline (items) ->
+              bt.tweets.mine.refresh(items.array)
+              bt.user.directMessages (items) ->
+                for item in items.array
+                  item.user = item.sender
+                bt.tweets.directMessages.refresh(items.array)

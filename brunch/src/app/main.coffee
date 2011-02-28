@@ -25,17 +25,17 @@ $(document).ready ->
 
   bt.tweets = {}
   bt.tweets.stream = new TweetCollection()
-  bt.tweets.stream.bind("add", bt.views.stream.render)
+  bt.tweets.stream.bind("refresh", bt.views.stream.render)
   bt.tweets.retweets = new TweetCollection()
-  bt.tweets.retweets.bind("add", bt.views.retweets.render)
+  bt.tweets.retweets.bind("refresh", bt.views.retweets.render)
   bt.tweets.retweeted = new TweetCollection()
-  bt.tweets.retweeted.bind("add", bt.views.retweeted.render)
+  bt.tweets.retweeted.bind("refresh", bt.views.retweeted.render)
   bt.tweets.mentioned = new TweetCollection()
-  bt.tweets.mentioned.bind("add", bt.views.mentioned.render)
+  bt.tweets.mentioned.bind("refresh", bt.views.mentioned.render)
   bt.tweets.directMessages = new TweetCollection()
-  bt.tweets.directMessages.bind("add", bt.views.directMessages.render)
+  bt.tweets.directMessages.bind("refresh", bt.views.directMessages.render)
   bt.tweets.mine = new TweetCollection()
-  bt.tweets.mine.bind("add", bt.views.mine.render)
+  bt.tweets.mine.bind("refresh", bt.views.mine.render)
 
   bt.views.navigation = new NavigationView()
   $('#NavigationView').replaceWith(bt.views.navigation.render().el)
