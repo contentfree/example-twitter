@@ -308,7 +308,10 @@
   })();
   TwitterConnectorView = (function() {
     function TwitterConnectorView() {
-      TwitterConnectorView.__super__.constructor.apply(this, arguments);
+      this.poll = __bind(this.poll, this);;
+      this.connect = __bind(this.connect, this);;
+      this.authComplete = __bind(this.authComplete, this);;
+      this.render = __bind(this.render, this);;      TwitterConnectorView.__super__.constructor.apply(this, arguments);
     }
     __extends(TwitterConnectorView, Backbone.View);
     TwitterConnectorView.prototype.id = 'TwitterConnectorView';
@@ -319,8 +322,7 @@
       this.delegateEvents(this.events);
       bt.T.bind('authComplete', this.authComplete);
       bt.T.bind("signOut", this.signOut);
-      this.render();
-      return _.bindAll(this, "render", "connect", "authComplete");
+      return this.render();
     };
     TwitterConnectorView.prototype.render = function() {
       $(this.el).html(bt.templates.twitterConnect());

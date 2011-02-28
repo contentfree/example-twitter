@@ -9,14 +9,13 @@ class TwitterConnectorView extends Backbone.View
     bt.T.bind('authComplete', @authComplete)
     bt.T.bind("signOut", @signOut)
     @render()
-    _.bindAll(@, "render", "connect", "authComplete")
 
-  render: ->
+  render: =>
     $(@el).html(bt.templates.twitterConnect())
     $('#content').append(@el)
 
   # triggered when auth completed successfully
-  authComplete: (e, user) ->
+  authComplete: (e, user) =>
     bt.user = user
     console.log(user)
     # let's poll for new tweets every minute
@@ -30,13 +29,13 @@ class TwitterConnectorView extends Backbone.View
   # triggered when user logs out
   signOut: (e) ->
 
-  connect: ->
+  connect: =>
     if bt.T.isConnected()
       @authComplete null, bt.T.currentUser
     else
       bt.T.signIn()
 
-  poll: ->
+  poll: =>
     console.log('poll')
 
     bt.tweets.stream.refresh([])
