@@ -45,29 +45,29 @@ class TwitterConnectorView extends Backbone.View
       for item in items.array
         tweets.push(TweetModel(item))
       bt.tweets.stream.add(tweets)
-      bt.user.retweets (items) ->
-        tweets = []
-        for item in items.array
-          tweets.push(TweetModel(item))
-        bt.tweets.retweets.add(tweets)
-        bt.user.retweeted (items) ->
-          tweets = []
-          for item in items.array
-            tweets.push(TweetModel(item))
-          bt.tweets.retweeted.add(tweets)
-          bt.user.mentions (items) ->
-            tweets = []
-            for item in items.array
-              tweets.push(TweetModel(item))
-            bt.tweets.mentioned.add(tweets)
-            bt.user.timeline (items) ->
-              tweets = []
-              for item in items.array
-                tweets.push(TweetModel(item))
-              bt.tweets.mine.add(tweets)
-              bt.user.directMessages (items) ->
-                tweets = []
-                for item in items.array
-                  item.user = item.sender
-                  tweets.push(TweetModel(item))
-              bt.tweets.directMessages.add(tweets)
+#      bt.user.retweets (items) ->
+#        tweets = []
+#        for item in items.array
+#          tweets.push(TweetModel(item))
+#        bt.tweets.retweets.add(tweets)
+#        bt.user.retweeted (items) ->
+#          tweets = []
+#          for item in items.array
+#            tweets.push(TweetModel(item))
+#          bt.tweets.retweeted.add(tweets)
+#          bt.user.mentions (items) ->
+#            tweets = []
+#            for item in items.array
+#              tweets.push(TweetModel(item))
+#            bt.tweets.mentioned.add(tweets)
+#            bt.user.timeline (items) ->
+#              tweets = []
+#              for item in items.array
+#                tweets.push(TweetModel(item))
+#              bt.tweets.mine.add(tweets)
+#              bt.user.directMessages (items) ->
+#                tweets = []
+#                for item in items.array
+#                  item.user = item.sender
+#                  tweets.push(TweetModel(item))
+#              bt.tweets.directMessages.add(tweets)

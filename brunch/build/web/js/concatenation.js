@@ -352,60 +352,7 @@
           item = _ref[_i];
           tweets.push(TweetModel(item));
         }
-        bt.tweets.stream.add(tweets);
-        return bt.user.retweets(function(items) {
-          var item, _i, _len, _ref;
-          tweets = [];
-          _ref = items.array;
-          for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-            item = _ref[_i];
-            tweets.push(TweetModel(item));
-          }
-          bt.tweets.retweets.add(tweets);
-          return bt.user.retweeted(function(items) {
-            var item, _i, _len, _ref;
-            tweets = [];
-            _ref = items.array;
-            for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-              item = _ref[_i];
-              tweets.push(TweetModel(item));
-            }
-            bt.tweets.retweeted.add(tweets);
-            return bt.user.mentions(function(items) {
-              var item, _i, _len, _ref;
-              tweets = [];
-              _ref = items.array;
-              for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-                item = _ref[_i];
-                tweets.push(TweetModel(item));
-              }
-              bt.tweets.mentioned.add(tweets);
-              return bt.user.timeline(function(items) {
-                var item, _i, _len, _ref;
-                tweets = [];
-                _ref = items.array;
-                for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-                  item = _ref[_i];
-                  tweets.push(TweetModel(item));
-                }
-                bt.tweets.mine.add(tweets);
-                bt.user.directMessages(function(items) {
-                  var item, _i, _len, _ref, _results;
-                  tweets = [];
-                  _ref = items.array;
-                  _results = [];
-                  for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-                    item = _ref[_i];
-                    item.user = item.sender;
-                    _results.push(tweets.push(TweetModel(item)));
-                  }
-                  return _results;
-                });
-                return bt.tweets.directMessages.add(tweets);
-              });
-            });
-          });
-        });
+        return bt.tweets.stream.add(tweets);
       });
     };
     return TwitterConnectorView;
