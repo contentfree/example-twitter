@@ -41,16 +41,16 @@ class TwitterConnectorView extends Backbone.View
 
     bt.tweets.stream.refresh([])
     bt.user.homeTimeline (items) ->
-      bt.tweets.stream.add(items)
+      bt.tweets.stream.add(items.array)
       bt.user.retweets (items) ->
-        bt.tweets.retweets.add(items)
+        bt.tweets.retweets.add(items.array)
         bt.user.retweeted (items) ->
-          bt.tweets.retweeted.add(items)
+          bt.tweets.retweeted.add(items.array)
           bt.user.mentions (items) ->
-            bt.tweets.mentioned.add(items)
+            bt.tweets.mentioned.add(items.array)
             bt.user.timeline (items) ->
-              bt.tweets.mine.add(items)
+              bt.tweets.mine.add(items.array)
               bt.user.directMessages (items) ->
-              for item in items
+              for item in items.array
                 item.user = item.sender
-              bt.tweets.directMessages.add(items)
+              bt.tweets.directMessages.add(items.array)

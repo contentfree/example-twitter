@@ -345,22 +345,23 @@
       console.log('poll');
       bt.tweets.stream.refresh([]);
       return bt.user.homeTimeline(function(items) {
-        bt.tweets.stream.add(items);
+        bt.tweets.stream.add(items.array);
         return bt.user.retweets(function(items) {
-          bt.tweets.retweets.add(items);
+          bt.tweets.retweets.add(items.array);
           return bt.user.retweeted(function(items) {
-            bt.tweets.retweeted.add(items);
+            bt.tweets.retweeted.add(items.array);
             return bt.user.mentions(function(items) {
-              bt.tweets.mentioned.add(items);
+              bt.tweets.mentioned.add(items.array);
               return bt.user.timeline(function(items) {
-                var item, _i, _len;
-                bt.tweets.mine.add(items);
+                var item, _i, _len, _ref;
+                bt.tweets.mine.add(items.array);
                 bt.user.directMessages(function(items) {});
-                for (_i = 0, _len = items.length; _i < _len; _i++) {
-                  item = items[_i];
+                _ref = items.array;
+                for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+                  item = _ref[_i];
                   item.user = item.sender;
                 }
-                return bt.tweets.directMessages.add(items);
+                return bt.tweets.directMessages.add(items.array);
               });
             });
           });
