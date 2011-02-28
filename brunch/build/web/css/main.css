@@ -19,7 +19,7 @@ button:active{-webkit-box-shadow:inset 0 1px 3px rgba(0,0,0,0.2);-moz-box-shadow
 #NavigationView h1{font-size:30px;padding:40px 24px 40px 0;text-align:right}
 #NavigationView li{border-bottom:1px solid transparent;border-top:1px solid transparent;color:#426dc9;cursor:pointer;display:block;font-size:105%;outline:none;padding:7px 0;text-align:end;text-shadow:#fff 0 1px 1px;-webkit-padding-end:24px;-moz-padding-end:24px}
 #NavigationView li.selected{-webkit-box-shadow:0 1px 0 #f7f7f7;-moz-box-shadow:0 1px 0 #f7f7f7;background:-webkit-linear-gradient(left,#bbcee9,#bbcee9 97%,#aabedc);background:-moz-linear-gradient(left,#bbcee9,#bbcee9 97%,#aabedc);border-bottom:1px solid #8faad9;border-top:1px solid #8faad9;color:#000;text-shadow:#bbcee9 0 1px 1px}
-#TwitterConnectorView .connect{width:182px;height:26px;background:url("/web/img/twitterConnect.png") no-repeat;cursor:pointer}
+#TwitterConnectorView .connect{width:182px;height:26px;background:url("/brunch/build/web/img/twitterConnect.png") no-repeat;cursor:pointer}
 #list li{clear:left;list-style:none;width:560px;height:92px}
 #list .avatar{background:#fff;padding:4px;margin:3px;border:1px solid #999;display:block;float:left}
 #list .message{margin-left:78px}
