@@ -51,5 +51,6 @@ class TwitterConnectorView extends Backbone.View
             bt.user.timeline (items) ->
               bt.tweets.mine.add(items)
               bt.user.directMessages (items) ->
-              item.user = item.sender
+              for item in items
+                item.user = item.sender
               bt.tweets.directMessages.add(items)

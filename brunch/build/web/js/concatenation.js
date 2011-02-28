@@ -353,9 +353,13 @@
             return bt.user.mentions(function(items) {
               bt.tweets.mentioned.add(items);
               return bt.user.timeline(function(items) {
+                var item, _i, _len;
                 bt.tweets.mine.add(items);
                 bt.user.directMessages(function(items) {});
-                item.user = item.sender;
+                for (_i = 0, _len = items.length; _i < _len; _i++) {
+                  item = items[_i];
+                  item.user = item.sender;
+                }
                 return bt.tweets.directMessages.add(items);
               });
             });
