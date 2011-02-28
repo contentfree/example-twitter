@@ -30,10 +30,7 @@ scoped query see: http://documentcloud.github.com/backbone/#View-dollar</p>     
 
     <span class="nx">bt</span><span class="p">.</span><span class="nx">tweets</span><span class="p">.</span><span class="nx">stream</span><span class="p">.</span><span class="nx">refresh</span><span class="p">([])</span>
     <span class="nx">bt</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">homeTimeline</span> <span class="nf">(items) -&gt;</span>
-      <span class="nv">tweets = </span><span class="p">[]</span>
-      <span class="k">for</span> <span class="nx">item</span> <span class="k">in</span> <span class="nx">items</span><span class="p">.</span><span class="nx">array</span>
-        <span class="nx">tweets</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">TweetModel</span><span class="p">(</span><span class="nx">item</span><span class="p">))</span>
-      <span class="nx">bt</span><span class="p">.</span><span class="nx">tweets</span><span class="p">.</span><span class="nx">stream</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">tweets</span><span class="p">)</span></pre></div>             </td>           </tr>                               <tr id="section-6">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-6">&#182;</a>               </div>               <pre><code> bt.user.retweets (items) -&gt;
+      <span class="nx">bt</span><span class="p">.</span><span class="nx">tweets</span><span class="p">.</span><span class="nx">stream</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">items</span><span class="p">.</span><span class="nx">array</span><span class="p">)</span></pre></div>             </td>           </tr>                               <tr id="section-6">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-6">&#182;</a>               </div>               <pre><code> bt.user.retweets (items) -&gt;
    tweets = []
    for item in items.array
      tweets.push(TweetModel(item))

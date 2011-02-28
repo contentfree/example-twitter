@@ -40,10 +40,7 @@ class TwitterConnectorView extends Backbone.View
 
     bt.tweets.stream.refresh([])
     bt.user.homeTimeline (items) ->
-      tweets = []
-      for item in items.array
-        tweets.push(TweetModel(item))
-      bt.tweets.stream.add(tweets)
+      bt.tweets.stream.add(items.array)
 #      bt.user.retweets (items) ->
 #        tweets = []
 #        for item in items.array

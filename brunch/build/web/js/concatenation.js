@@ -347,14 +347,7 @@
       console.log('poll');
       bt.tweets.stream.refresh([]);
       return bt.user.homeTimeline(function(items) {
-        var item, tweets, _i, _len, _ref;
-        tweets = [];
-        _ref = items.array;
-        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-          item = _ref[_i];
-          tweets.push(TweetModel(item));
-        }
-        return bt.tweets.stream.add(tweets);
+        return bt.tweets.stream.add(items.array);
       });
     };
     return TwitterConnectorView;
