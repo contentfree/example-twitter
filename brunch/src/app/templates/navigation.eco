@@ -1,0 +1,11 @@
+<h1>Brunch Tweet</h1>
+
+<ol>
+  <li data-nav="stream" class="selected">Stream</li>
+  <li data-nav="mentioned">@ Mentions</li>
+  <li data-nav="directMessages">Direct Messages</li>
+  <li data-nav="mine">My Tweets</li>
+  <li data-nav="retweeted">My Tweets Retweeted</li>
+  <li data-nav="retweets">Retweets of my Peers</li>
+  <li data-nav="settings">Settings</li>
+</ol>

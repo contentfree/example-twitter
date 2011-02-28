@@ -1,0 +1,1 @@
+class UserCollection extends Backbone.Collection

@@ -1,0 +1,9 @@
+<ol>
+  <% for tweet in @tweets: %>
+  <li>
+    <img class="avatar" src="<%= if tweet.user? then tweet.user.profile_image_url else tweet.sender.profile_image_url %>" width="58" height="58">
+    <h2><%= if tweet.user? then tweet.user.name else tweet.sender.name %></h2>
+    <p class="message"><%= tweet.text %></p>
+  </li>
+  <% end %>
+</ol>

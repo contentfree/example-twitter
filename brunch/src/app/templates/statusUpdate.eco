@@ -1,0 +1,6 @@
+<h1>What's happening?</h1>
+<form>
+  <textarea></textarea>
+  <p><span class="char-count">140</span> Characters left</p>
+  <button class="tweet-button">tweet</button>
+</form>

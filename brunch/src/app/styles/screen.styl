@@ -1,0 +1,138 @@
+body
+  color #4C4C4C
+  font-family Helvetica, sans-serif
+  font-size 14px
+
+#sidebar
+  font-family: 'Droid Sans', sans-serif
+  -webkit-border-end 1px solid #C6C9CE
+  -moz-border-end 1px solid #C6C9CE
+  background -webkit-linear-gradient(rgba(234, 238, 243, 0.2), #EAEEF3), -webkit-linear-gradient(left, #EAEEF3, #EAEEF3 97%, #D3D7DB)
+  background -moz-linear-gradient(rgba(234, 238, 243, 0.2), #EAEEF3), -moz-linear-gradient(left, #EAEEF3, #EAEEF3 97%, #D3D7DB)
+  bottom: 0
+  left: 0
+  top: 0
+  width: 266px
+  position: fixed
+  z-index: 2
+
+#content
+  padding: 40px 24px 0 24px
+  position: absolute
+  margin-left 267px
+  overflow-y auto
+
+a
+  text-decoration none
+  color #000000
+
+button
+  font-size 16px
+  color: #444444
+  margin-bottom: 0px
+  min-width: 4em
+  padding: 3px 12px 3px 12px
+  -webkit-border-radius: 2px
+  -moz-border-radius: 2px
+  border: 1px solid #AAAAAA
+  border-radius: 2px
+  -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1)
+  -moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1)
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1)
+  background: -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5)
+  background: -moz-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5)
+  background: linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5)
+  color: #888888
+
+button:hover
+  -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2)
+  -moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2)
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2)
+  background: #EBEBEB -webkit-linear-gradient(#FEFEFE, #F8F8F8 40%, #E9E9E9)
+  background: #EBEBEB -moz-linear-gradient(#FEFEFE, #F8F8F8 40%, #E9E9E9)
+  background: #EBEBEB linear-gradient(#FEFEFE, #F8F8F8 40%, #E9E9E9)
+  border-color: #999999
+  color: #222222
+
+button:active
+  -webkit-box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.2)
+  -moz-box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.2)
+  box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.2)
+  background: #EBEBEB -webkit-linear-gradient(#F4F4F4, #EFEFEF 40%, gainsboro)
+  background: #EBEBEB -moz-linear-gradient(#F4F4F4, #EFEFEF 40%, gainsboro)
+  background: #EBEBEB linear-gradient(#F4F4F4, #EFEFEF 40%, gainsboro)
+  color: #333333
+
+#NavigationView
+  h1
+    font-size 30px
+    padding 40px 24px 40px 0
+    text-align right
+
+  li
+    border-bottom: 1px solid transparent
+    border-top: 1px solid transparent
+    color: #426DC9
+    cursor: pointer
+    display: block
+    font-size: 105%
+    outline: none
+    padding: 7px 0
+    text-align: end
+    text-shadow: white 0 1px 1px
+    -webkit-padding-end: 24px
+    -moz-padding-end: 24px
+
+  li.selected
+    -webkit-box-shadow: 0px 1px 0px #F7F7F7
+    -moz-box-shadow: 0px 1px 0px #F7F7F7
+    background: -webkit-linear-gradient(left, #BBCEE9, #BBCEE9 97%, #AABEDC)
+    background: -moz-linear-gradient(left, #BBCEE9, #BBCEE9 97%, #AABEDC)
+    border-bottom: 1px solid #8FAAD9
+    border-top: 1px solid #8FAAD9
+    color: black
+    text-shadow: #BBCEE9 0 1px 1px
+
+#TwitterConnectorView
+  .connect
+    width 182px
+    height 26px
+    background url('/web/img/twitterConnect.png') no-repeat
+    cursor pointer
+
+#list
+  li
+    clear left
+    list-style none
+    width 560px
+    height: 92px
+
+  .avatar
+    background: #FFFFFF
+    padding 4px
+    margin 3px
+    border 1px solid #999999
+    display block
+    float left
+
+  .message
+    margin-left 78px
+
+  h2
+    margin-left 78px
+    font-family 'Droid Sans', sans-serif
+    font-size 20px
+    color #222222
+
+#StatusUpdateView
+  textarea
+    width 400px
+    height: 50px
+    padding 10px
+    border: 1px solid #CCCCCC
+    border-radius: 4px
+    -moz-border-radius: 4px
+    -webkit-border-radius: 4px
+
+  .tweet-button
+    float right
