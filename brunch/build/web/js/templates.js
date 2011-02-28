@@ -140,7 +140,7 @@
   }
   (function() {
     (function() {
-      __out.push('<h1>Brunch Tweet</h1>\n\n<ol>\n  <li data-nav="stream" class="selected">Stream</li>\n  <li data-nav="mentioned">@ Mentions</li>\n  <li data-nav="directMessages">Direct Messages</li>\n  <li data-nav="mine">My Tweets</li>\n  <li data-nav="retweeted">My Tweets Retweeted</li>\n  <li data-nav="retweets">Retweets of my Peers</li>\n  <li data-nav="settings">Settings</li>\n</ol>\n');
+      __out.push('<h1>Brunch Tweet</h1>\n\n<ol>\n  <li data-nav="stream" class="selected">Stream</li>\n  <li data-nav="mentioned">@ Mentions</li>\n  <li data-nav="directMessages">Direct Messages</li>\n  <li data-nav="mine">My Tweets</li>\n  <li data-nav="retweeted">My Tweets Retweeted</li>\n  <li data-nav="retweets">Retweets of my Peers</li>\n  <li data-nav="settings">Settings</li>\n</ol>\n\n<div id="yak"></div>\n');
     }).call(this);
     
   }).call(__obj);
