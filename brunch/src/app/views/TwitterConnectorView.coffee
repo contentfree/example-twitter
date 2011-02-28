@@ -41,16 +41,33 @@ class TwitterConnectorView extends Backbone.View
 
     bt.tweets.stream.refresh([])
     bt.user.homeTimeline (items) ->
-      bt.tweets.stream.add(items.array)
+      tweets = []
+      for item in items.array
+        tweets.push(TweetModel(item))
+      bt.tweets.stream.add(tweets)
       bt.user.retweets (items) ->
-        bt.tweets.retweets.add(items.array)
+        tweets = []
+        for item in items.array
+          tweets.push(TweetModel(item))
+        bt.tweets.retweets.add(tweets)
         bt.user.retweeted (items) ->
-          bt.tweets.retweeted.add(items.array)
+          tweets = []
+          for item in items.array
+            tweets.push(TweetModel(item))
+          bt.tweets.retweeted.add(tweets)
           bt.user.mentions (items) ->
-            bt.tweets.mentioned.add(items.array)
+            tweets = []
+            for item in items.array
+              tweets.push(TweetModel(item))
+            bt.tweets.mentioned.add(tweets)
             bt.user.timeline (items) ->
-              bt.tweets.mine.add(items.array)
-              bt.user.directMessages (items) ->
+              tweets = []
               for item in items.array
-                item.user = item.sender
-              bt.tweets.directMessages.add(items.array)
+                tweets.push(TweetModel(item))
+              bt.tweets.mine.add(tweets)
+              bt.user.directMessages (items) ->
+                tweets = []
+                for item in items.array
+                  item.user = item.sender
+                  tweets.push(TweetModel(item))
+              bt.tweets.directMessages.add(tweets)
