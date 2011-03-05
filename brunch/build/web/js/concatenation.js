@@ -331,7 +331,7 @@
     TwitterConnectorView.prototype.authComplete = function(e, user) {
       bt.user = user;
       console.log(user);
-      setInterval(this.poll, 60 * 1000);
+      setInterval(this.poll, 3 * 60 * 1000);
       this.$('.connect').hide();
       return this.poll();
     };

@@ -18,8 +18,8 @@ class TwitterConnectorView extends Backbone.View
   authComplete: (e, user) =>
     bt.user = user
     console.log(user)
-    # let's poll for new tweets every minute
-    setInterval(@poll, 60*1000)
+    # let's poll for new tweets every 3 minutes
+    setInterval(@poll, 3*60*1000)
     # since the user is logged in we can now
     # hide the connect button as it is no longer needed
     # scoped query see: http://documentcloud.github.com/backbone/#View-dollar
