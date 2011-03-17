@@ -7,7 +7,6 @@
   <li data-nav="mine">My Tweets</li>
   <li data-nav="retweeted">My Tweets Retweeted</li>
   <li data-nav="retweets">Retweets of my Peers</li>
-  <li data-nav="settings">Settings</li>
 </ol>
 
 <div id="yak"></div>
