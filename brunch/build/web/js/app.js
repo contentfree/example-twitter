@@ -1,91 +1,8 @@
-(function() {
-  var DirectMessagesView, MainController, MentionedView, MineView, NavigationView, RetweetedView, RetweetsView, StatusUpdateView, StreamView, TweetCollection, TweetModel, TwitterConnectorView, UserCollection;
-  var __hasProp = Object.prototype.hasOwnProperty, __extends = function(child, parent) {
-    for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; }
-    function ctor() { this.constructor = child; }
-    ctor.prototype = parent.prototype;
-    child.prototype = new ctor;
-    child.__super__ = parent.prototype;
-    return child;
-  }, __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
-  window.bt = {};
-  bt.controllers = {};
-  bt.models = {};
-  bt.views = {};
-  $(document).ready(function() {
-    bt.controllers.main = new MainController();
-    bt.views.stream = new StreamView();
-    bt.views.retweets = new RetweetsView();
-    bt.views.retweeted = new RetweetedView();
-    bt.views.mentioned = new MentionedView();
-    bt.views.directMessages = new DirectMessagesView();
-    bt.views.mine = new MineView();
-    bt.tweets = {};
-    bt.tweets.stream = new TweetCollection();
-    bt.tweets.stream.bind("refresh", bt.views.stream.render);
-    bt.tweets.retweets = new TweetCollection();
-    bt.tweets.retweets.bind("refresh", bt.views.retweets.render);
-    bt.tweets.retweeted = new TweetCollection();
-    bt.tweets.retweeted.bind("refresh", bt.views.retweeted.render);
-    bt.tweets.mentioned = new TweetCollection();
-    bt.tweets.mentioned.bind("refresh", bt.views.mentioned.render);
-    bt.tweets.directMessages = new TweetCollection();
-    bt.tweets.directMessages.bind("refresh", bt.views.directMessages.render);
-    bt.tweets.mine = new TweetCollection();
-    bt.tweets.mine.bind("refresh", bt.views.mine.render);
-    if ('' === Backbone.history.getFragment()) {
-      Backbone.history.saveLocation("home");
-    }
-    return Backbone.history.start();
-  });
-  TweetModel = (function() {
-    function TweetModel() {
-      TweetModel.__super__.constructor.apply(this, arguments);
-    }
-    __extends(TweetModel, Backbone.Model);
-    return TweetModel;
-  })();
-  TweetCollection = (function() {
-    function TweetCollection() {
-      TweetCollection.__super__.constructor.apply(this, arguments);
-    }
-    __extends(TweetCollection, Backbone.Collection);
-    TweetCollection.prototype.model = TweetModel;
-    return TweetCollection;
-  })();
-  UserCollection = (function() {
-    function UserCollection() {
-      UserCollection.__super__.constructor.apply(this, arguments);
-    }
-    __extends(UserCollection, Backbone.Collection);
-    return UserCollection;
-  })();
-  MainController = (function() {
-    __extends(MainController, Backbone.Controller);
-    MainController.prototype.routes = {
-      "home": "home",
-      "stream": "stream",
-      "mentioned": "mentioned",
-      "directMessages": "directMessages",
-      "mine": "mine",
-      "retweeted": "retweeted",
-      "retweets": "retweets",
-      "settings": "settings"
-    };
-    function MainController() {
-      MainController.__super__.constructor.apply(this, arguments);
-      this.bind("all", function(msg) {
-        if (typeof _gaq != "undefined" && _gaq !== null) {
-          return _gaq.push(['_trackPageview', msg.replace(/route:/, '')]);
+['_trackPageview', msg.replace(/route:/, '')]);
         }
       });
     }
-    MainController.prototype.home = function() {
-      return twttr.anywhere(function(T) {
-        bt.T = T;
-        return bt.views.twitterConnector = new TwitterConnectorView();
-      });
-    };
+    MainController.prototype.home = function() {};
     MainController.prototype.stream = function() {
       $('#list').html(bt.views.stream.render().el);
       return bt.T('#list').hovercards();
@@ -331,10 +248,6 @@
       console.log(user);
       setInterval(this.poll, 3 * 60 * 1000);
       this.$('.connect').hide();
-      bt.views.navigation = new NavigationView();
-      $('#NavigationView').replaceWith(bt.views.navigation.render().el);
-      bt.views.statusUpdate = new StatusUpdateView();
-      $('#StatusUpdateView').replaceWith(bt.views.statusUpdate.render().el);
       return this.poll();
     };
     TwitterConnectorView.prototype.signOut = function(e) {};

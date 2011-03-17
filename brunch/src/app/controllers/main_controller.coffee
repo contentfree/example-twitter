@@ -15,9 +15,14 @@ class MainController extends Backbone.Controller
       # trigger google analytics
       if _gaq?
         _gaq.push ['_trackPageview', msg.replace(/route:/,'')]
-    
 
   home: ->
+    # attach the Twitter object to the namespace of our app
+    # and then initialize the twitter connector
+    twttr.anywhere((T) ->
+      bt.T = T
+      bt.views.twitterConnector = new TwitterConnectorView()
+    )
 
   stream: ->
     $('#list').html(bt.views.stream.render().el)
@@ -44,4 +49,3 @@ class MainController extends Backbone.Controller
     bt.T('#list').hovercards()
 
   settings: ->
-    

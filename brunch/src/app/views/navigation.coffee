@@ -9,7 +9,7 @@ class NavigationView extends Backbone.View
     return @
 
   navigate: (e) ->
-    this.$('li').removeClass('selected')
+    @$('li').removeClass('selected')
     $(e.currentTarget).addClass('selected')
     # extract where to navigate from the
     # data attribute which we added to our li tags

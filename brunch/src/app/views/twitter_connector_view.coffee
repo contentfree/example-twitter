@@ -24,6 +24,15 @@ class TwitterConnectorView extends Backbone.View
     # hide the connect button as it is no longer needed
     # scoped query see: http://documentcloud.github.com/backbone/#View-dollar
     @$('.connect').hide()
+
+    # add navigation and statusUpdate views
+    bt.views.navigation = new NavigationView()
+    $('#NavigationView').replaceWith(bt.views.navigation.render().el)
+
+    bt.views.statusUpdate = new StatusUpdateView()
+    $('#StatusUpdateView').replaceWith(bt.views.statusUpdate.render().el)
+
+
     @poll()
 
   # triggered when user logs out
