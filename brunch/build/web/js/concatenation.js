@@ -335,7 +335,9 @@
       $('#NavigationView').replaceWith(bt.views.navigation.render().el);
       bt.views.statusUpdate = new StatusUpdateView();
       $('#StatusUpdateView').replaceWith(bt.views.statusUpdate.render().el);
-      return this.poll();
+      this.poll();
+      Backbone.history.saveLocation("stream");
+      return bt.controllers.main.stream();
     };
     TwitterConnectorView.prototype.signOut = function(e) {};
     TwitterConnectorView.prototype.connect = function() {

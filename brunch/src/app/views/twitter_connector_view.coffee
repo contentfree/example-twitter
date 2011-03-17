@@ -31,9 +31,9 @@ class TwitterConnectorView extends Backbone.View
 
     bt.views.statusUpdate = new StatusUpdateView()
     $('#StatusUpdateView').replaceWith(bt.views.statusUpdate.render().el)
-
-
     @poll()
+    Backbone.history.saveLocation("stream")
+    bt.controllers.main.stream()
 
   # triggered when user logs out
   signOut: (e) ->
