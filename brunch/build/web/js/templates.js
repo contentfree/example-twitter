@@ -230,7 +230,7 @@
   }
   (function() {
     (function() {
-      __out.push('<div class="connect"></div>\n');
+      __out.push('<div class="connect"></div>\n<div>a simple twitter client built using <a href="http://brunchwithcoffee.com/">brunch</a> (an elegant html5 framework which combines awesome tools like underscorejs, backbonejs, eco and stylus).</div>\n');
     }).call(this);
     
   }).call(__obj);
